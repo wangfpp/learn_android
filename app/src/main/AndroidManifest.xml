@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Learn_android">
         <activity
             android:name=".SwiperAcivity"
+            android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_swiper_acivity"></activity>
 
         <!--

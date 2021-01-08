@@ -49,9 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
                     String curr_time = formatter.format(date);
                     textViewTime.setText(curr_time);
-                    Log.d(TAG, String.valueOf(time));
+//                    Log.d(TAG, String.valueOf(time));
                 }
-
                 super.handleMessage(msg);
             }
         };
