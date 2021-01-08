@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.study.learn_android">
+        <!--    权限-->
+    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT"
+        tools:ignore="ProtectedPermissions"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
+        tools:ignore="ProtectedPermissions"></uses-permission>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -10,9 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Learn_android">
         <activity
-            android:name=".SwiperAcivity"
+            android:name=".CaptureVideo"
             android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_swiper_acivity"></activity>
+            android:label="@string/capture"></activity>
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld

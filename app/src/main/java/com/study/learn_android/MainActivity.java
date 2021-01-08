@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String TAG = "MainActivity";
     private int timeWhat = 10001;
     private Handler handler;
+    private Boolean timeing = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 super.handleMessage(msg);
             }
         };
-
         setInterval();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        timeing = true;
     }
 
     /**
@@ -79,17 +84,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void run() {
                 while (true) {
-                    try {
-                        Thread.sleep(1000);
-                        long date = new Date().getTime();
-                        Message timeMsg = new Message();
-                        timeMsg.what = timeWhat;
-                        Bundle bundle = new Bundle();
-                        bundle.putLong("time", date);
-                        timeMsg.setData(bundle);
-                        handler.sendMessage(timeMsg);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if(timeing) {
+                        try {
+                            Thread.sleep(1000);
+                            long date = new Date().getTime();
+                            Message timeMsg = new Message();
+                            timeMsg.what = timeWhat;
+                            Bundle bundle = new Bundle();
+                            bundle.putLong("time", date);
+                            timeMsg.setData(bundle);
+                            handler.sendMessage(timeMsg);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -129,9 +136,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.search_go_btn:
-                Intent intent = new Intent(this, SwiperAcivity.class);
+                timeing = false;
+                Intent intent = new Intent(this, CaptureVideo.class);
                 startActivity(intent);
-                Toast.makeText(this, "去哪?", Toast.LENGTH_LONG).show();
                 break;
         }
     }

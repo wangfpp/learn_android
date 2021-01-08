@@ -5,6 +5,9 @@
     <string name="img_src">"https://tpc.googlesyndication.com/simgad/11926661793054257446/downsize_200k_v1"</string>
     <string name="picture">picture</string>
     <string name="title_activity_swiper_acivity">SwiperAcivity</string>
+    <string name="capture">录像</string>
+    <string name="capture_video">开始录像</string>
+    <string name="toggle_camera">切换摄像头</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
