@@ -2,14 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.study.learn_android">
-        <!--    权限-->
-    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT"
-        tools:ignore="ProtectedPermissions"></uses-permission>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
-        tools:ignore="ProtectedPermissions"></uses-permission>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"></uses-permission>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -17,12 +9,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Learn_android">
+        android:theme="@style/Theme.MaterialComponents.NoActionBar">
+        <activity android:name=".SerialAcivity"></activity>
         <activity
             android:name=".CaptureVideo"
+            android:label="@string/capture"
             android:parentActivityName=".MainActivity"
-            android:label="@string/capture"></activity>
-
+            android:screenOrientation="landscape" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -34,9 +27,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-
+    <uses-permission
+        android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_VIDEO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

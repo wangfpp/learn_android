@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 while (true) {
                     if(timeing) {
                         try {
-                            Thread.sleep(1000);
                             long date = new Date().getTime();
                             Message timeMsg = new Message();
                             timeMsg.what = timeWhat;
@@ -94,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             bundle.putLong("time", date);
                             timeMsg.setData(bundle);
                             handler.sendMessage(timeMsg);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
