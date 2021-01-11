@@ -7,6 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="tomato">#30e9b0df</color>
-    <color name="spin_bg">#FFadeecf</color>
+    <color name="tomato">#17E9B0dF</color>
+    <color name="spin_bg">#FFADEECF</color>
 </resources>
