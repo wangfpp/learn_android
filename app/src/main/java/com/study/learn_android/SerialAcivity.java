@@ -39,6 +39,7 @@ public class SerialAcivity extends AppCompatActivity {
 
     }
     public void destorySerial() {
+        textTextViewRv.setText("");
         try {
             serialPortHelper.closeDevice();
         } catch (Exception e) {

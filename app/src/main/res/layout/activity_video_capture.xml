@@ -19,6 +19,15 @@
             android:layout_height="match_parent"/>
     </LinearLayout>
     <LinearLayout
+        android:background="@color/m2600"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <SurfaceView
+            android:id="@+id/draw_face"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

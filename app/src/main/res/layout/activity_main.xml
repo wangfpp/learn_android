@@ -30,6 +30,7 @@
             android:layout_gravity="center_horizontal"
             android:contentDescription="picture"/>
         <LinearLayout
+            android:id="@+id/btn_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"

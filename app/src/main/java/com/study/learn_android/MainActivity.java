@@ -5,20 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class  MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ProgressBar progressBar;
     private Button progressButton;
@@ -30,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int timeWhat = 10001;
     private Handler handler;
     private Boolean timeing = true;
+    private List<String> btnList = Arrays.asList("loading", "toCamera", "serial", "network");
+    private List<Integer> idList = Arrays.asList(2000, 2001, 2002, 2003);
+    private LinearLayout btn_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +81,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressButton = findViewById(R.id.loding_btn);
         goButton = findViewById(R.id.search_go_btn);
         textViewTime = findViewById(R.id.curr_time);
-
+        btn_layout = findViewById(R.id.btn_layout);
         progressButton.setOnClickListener(this);
         goButton.setOnClickListener(this);
+        for (int i = 0; i < btnList.size(); i++) {
+            String item = btnList.get(i);
+            Log.d(TAG, String.valueOf(btnList.get(i)));
+            Button btn = new Button(this);
+            btn.setText(item);
+            int id = idList.get(i);
+            btn.setId(id);
+            btn.setOnClickListener(this);
+            btn.setAllCaps(false);
+            btn_layout.addView(btn);
+        }
     }
 
     /**
@@ -126,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int nodeId = v.getId();
         switch (nodeId) {
-            case R.id.loding_btn:
+            case 2000:
                 // 设置loading显示和隐藏
                 int isVisibility = progressBar.getVisibility();
                 if (isVisibility == View.GONE || isVisibility == View.INVISIBLE) {
@@ -135,11 +156,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     progressBar.setVisibility(View.GONE);
                 }
                 break;
-            case R.id.search_go_btn:
+            case 2001:
                 timeing = false;
                 Intent intent = new Intent(this, CaptureVideo.class);
                 startActivity(intent);
                 break;
+            case 2002:
+                intent = new Intent(this, SerialAcivity.class);
+                startActivity(intent);
+                break;
+            case 2003:
+                intent = new Intent(this, NetworkAcitivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }
