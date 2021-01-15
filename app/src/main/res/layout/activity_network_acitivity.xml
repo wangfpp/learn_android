@@ -17,9 +17,26 @@
     <TextView
         android:id="@+id/ipinfo"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="#fff"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="以下是接收到的信息:"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/server_res"
+            android:layout_width="match_parent"
+            android:layout_weight="0"
+            android:text=""
+            android:textColor="#fff"
+            android:layout_height="match_parent"/>
+    </ScrollView>
 
 </LinearLayout>
